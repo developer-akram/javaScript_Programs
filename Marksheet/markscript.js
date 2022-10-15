@@ -72,4 +72,5 @@ function msheet()
     document.getElementById('total-opt').innerHTML = 'Total : '+total;
     document.getElementById('per-opt').innerHTML = 'Percentage : '+per.toFixed(2)+' %';
     document.getElementById('grade-opt').innerHTML = 'Grade : '+g;
+    
 }
