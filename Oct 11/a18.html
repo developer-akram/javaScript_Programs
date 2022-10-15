@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/gross.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Cairo:wght@300;400&family=Signika+Negative:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="title">
+        Program to calculate Simple Interest
+    </div>
+    <div id="par">
+        <div class="input">
+            <input type="text" name="p_amount" id="p_amount" placeholder="Pricipal Amount" required>
+        </div>
+        <div class="input">
+            <input type="text" name="inter" id="inter" placeholder="Rate of Interest" required>
+        </div>
+        <div class="input">
+            <input type="text" name="year" id="year" placeholder="Period (In Years)" required>
+        </div>
+        <div class="input">
+            <input type="text" name="com" id="com" placeholder="Number of time Compound" required>
+        </div>
+        <div class="input">
+            <input type="button" value="Compound Interest" name="result" id="result" onclick="compound_interest()">
+        </div>
+        <div id="ans" class="input">
+            <span id="ci"></span>
+        </div>
+    </div>
+</body>
+
+</html>

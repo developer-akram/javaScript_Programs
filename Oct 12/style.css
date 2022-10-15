@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
+    letter-spacing:2px;
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+#par{
+    border: 10px ridge red;
+    padding: 20px;
+    border-radius: 1rem;
+    width: 60vw;
+    height: fit-content;
+    min-width: 50vw;
+    min-height: 50vh;
+    margin: 10vh auto;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    background-image: linear-gradient(to right bottom,rgb(158, 231, 255),red,white,blue,yellow);
+    /* box-shadow: 0px 0px 20rem 10px orange; */
+    box-shadow: 0px 0px 70px 15px rgb(255, 229, 111);
+}

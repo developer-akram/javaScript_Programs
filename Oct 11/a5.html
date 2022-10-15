@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Rectangle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/gross.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Cairo:wght@300;400&family=Signika+Negative:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="title" style="white-space: pre;">
+        Program of Area & Perimeter of the Rectangle 
+        and Area & Circumference of the Circle
+    </div>
+    <div id="par">
+        <div class="input">
+            <input type="text" name="len" id="len" placeholder="Enter Length of Rectangle" required>
+        </div>
+        <div class="input">
+            <input type="text" name="bth" id="bth" placeholder="Enter Breadth of Rectangle" required>
+        </div>
+        <div class="input">
+            <input style="border-radius: 50%;" type="text" name="rad" id="rad" placeholder="Enter Radius of Circle" required>
+        </div>
+        <div class="input">
+            <input type="button" value="Calculate" name="calc" id="calc" onclick="rec_cir_formulae()">
+        </div>
+        <div id="ans" class="input">
+            <span id="area_r"></span>
+        </div>
+        <div id="ans" class="input">
+            <span id="peri_r"></span>
+        </div>
+        <div id="ans" class="input">
+            <span id="area_c"></span>
+        </div>
+        <div id="ans" class="input">
+            <span id="cir_c"></span>
+        </div>
+    </div>
+</body>
+
+</html>
