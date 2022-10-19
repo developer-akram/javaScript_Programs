@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bitter', serif;
+    font-family: 'Hind', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+#title {
+    font-size: 35px;
+    color: white;
+    font-weight: bolder;
+    width: fit-content;
+    margin: 5vh auto;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+
+}
+
+#par {
+    width: 50vw;
+    height: fit-content;
+    margin: 10vh auto;
+    padding: 20px;
+    border: 10px ridge rgb(202, 0, 0);
+    filter: drop-shadow(0 0 8rem rgb(136, 3, 3));
+    border-radius: 1rem;
+    display: flex;
+    background-image: linear-gradient(to bottom right, #ff7474 20%, #046ad0 50%, #c41bde 80%, rgb(46, 218, 46));
+    flex-flow: column nowrap;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0px 0px 70px 15px rgb(255, 229, 111);
+}
+
+.input {
+    font-size: 25px;
+    width: fit-content;
+    color: rgb(0, 15, 56);
+}
+
+input[type='text'],
+input[type='button'],
+#ans {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 20px;
+    background-color: rgb(255, 252, 226);
+    border-radius: 0.75rem;
+    min-width: 200px;
+
+}
+
+input[type='button'] {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    border-radius: unset;
+    background-color: red;
+    filter: drop-shadow(0 0 0.5rem rgb(132, 255, 158))
+}
+
+#ans {
+    background-color: transparent;
+    color: rgb(206, 255, 224);
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    overflow: auto;
+    filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0));
+    word-spacing: 6px;
+
+}
+
+input[type='button']:hover {
+    background-color: #000f2d;
+    color: white;
+    box-shadow: 0px 0px 5px 3px rgb(165, 255, 224);
+}
+
+input[type='button']:active {
+    background-color: #000000;
+    color: #ffff3b;
+    font-size: 24px;
+}
