@@ -48,5 +48,5 @@ function sort_a()
             }
         }
     }
-    document.getElementById('pos_array').innerHTML = da;
+    document.getElementById('sort_array').innerHTML = da;
 }
