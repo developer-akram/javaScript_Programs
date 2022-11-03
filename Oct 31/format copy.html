@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap 101 Template</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <script src="./js/validation.js"></script> -->
+  </head>
+
+  <body>
+    <p>Welcome in Contact us Page</p>
+    <style type="text/css">
+      span {
+        color: red;
+      }
+    </style>
+    <script>
+      function validate() {
+        var email = document.getElementById("txtemail").value;
+        var name = document.getElementById("txtname").value;
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
+        if (name.length == 0) {
+          //  alert("Name is required");
+          document.getElementById("txtname").style.border = "1px solid red";
+          document.getElementById("sperror1").innerHTML = "Name is required";
+          return false;
+        } else if (!isNaN(name)) {
+          alert("Name should be alphabets");
+          return false;
+        } else if (isNaN(document.getElementById("txtmobile").value)) {
+          alert("Mobile no should be numeric");
+          return false;
+        } else if (document.getElementById("txtmobile").value.length != 10) {
+          alert("Mobile no should be 10 digits in length");
+          return false;
+        } else if (
+          atpos == -1 ||
+          dotpos == -1 ||
+          dotpos < atpos ||
+          dotpos - atpos < 3 ||
+          dotpos == email.length - 1
+        ) {
+          alert("Invalid Email Id");
+          return false;
+        } else if (document.getElementById("txtmessage").value.length > 50) {
+          alert("mesaage should not be more than 50 char");
+          return false;
+        }
+        else
+        {
+          alert('Form successfully Submitted.')
+          return true;
+        }
+      }
+    </script>
+
+    <form action="" method="post">
+      <table>
+        <tr>
+          <td>Enter name</td>
+          <td>
+            <input type="text" id="txtname" name="txtname" /><span
+              id="sperror1"
+            ></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Enter mobile</td>
+          <td><input type="text" id="txtmobile" name="txtmobile" /></td>
+        </tr>
+        <tr>
+          <td>Enter emailid</td>
+          <td><input type="text" id="txtemail" name="txtemail" /></td>
+        </tr>
+        <tr>
+          <td>Enter Message</td>
+          <td><textarea id="txtmessage" name="txtmessage"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" onclick="return validate()" value="click" />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <p>samhdg gfhjdg fhdgfhdg hfjdg g dhfg h</p>
+  </body>
+</html>
