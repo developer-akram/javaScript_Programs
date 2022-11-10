@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+        function valid() {
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let a2z = /^[a-zA-Z]+$/;
+    let email = document.getElementById("email").value;
+    let atpos = email.indexOf('@');
+    let dotpos = email.lastIndexOf('.');
+    let country = document.getElementById('country');
+    let gender = document.querySelector('input[name="gender"]:checked');
+    let mob = document.getElementById('mob').value;
+    mob = String(Number(mob));
+    let course = document.querySelectorAll('input[name="course"]:checked');
+    // let state = document.querySelectorAll('input[name="state"]:checked');
+    console.log(state);
+    // let msg = document.getElementById('message').value;
+    if (fname.length == 0) {
+        alert("First Name cannot Empty");
+        return false;
+    } else if (!a2z.test(fname) && !a2z.test(lname)) {
+        alert("Name Should be in Alphabets only");
+        return false;
+    }
+    else if (lname.length == 0) {
+        alert(" Last Name cannot Empty");
+        return false;
+    } else if (!a2z.test(lname)) {
+        alert("Name Should be in Alphabets only");
+        return false;
+    }
+    else if (gender == null) {
+        alert("Select Your Gender");
+        return false;
+    }
+    else if (
+        email.length == 0 ||
+        !a2z.test(email[0]) ||
+        !a2z.test(email[email.length - 1]) ||
+        (email.match(/@/g) || []).length != 1 ||
+        dotpos - atpos < 3
+    ) {
+        alert("Invalid format Email");
+        return false;
+    }
+    else if (isNaN(mob)) {
+        alert("Only Numbers can be Acceptable");
+        return false;
+    }
+    else if (mob.length != 10) {
+        alert("Number Should be 10 digits");
+        return false;
+    }
+    else if (course.length == 0) {
+        alert('Select at least one Course');
+        return false;
+    }
+    else if (country == 'none') {
+        alert("Select Country");
+        return false;
+    }
+    // else if (state == 'none') {
+    //     alert("Select City");
+    //     return false;
+    // }
+    // else if (msg.length <= 50) {
+    //     alert("Message contains at least 50 alphabets");
+    //     return false;
+    // }
+    else {
+        alert("Success!");
+        return true;
+    }
+}
+
+    </script>
+   <div class="col-12">
+        <form action="" method="post" class="row mb-5" name="frm">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="fname"
+                        name="fname">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lname"
+                        name="lname">
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="col-12">Gender</div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                    <label class="form-check-label" for="male">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                    <label class="form-check-label" for="female">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <input type="text" class="form-control" placeholder="Email ID" id="email" name="email">
+            </div>
+            <div class="col-12 mb-3">
+                <input type="text" class="form-control" placeholder="Mobile number" id="mob" name="mob">
+            </div>
+            <div class="col-12">
+                <div class="col-12 mb-1">Select Courses</div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="java" name="course" value="Java">
+                    <label class="form-check-label" for="java">Java</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="python" name="course" value="Python">
+                    <label class="form-check-label" for="python">Python</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="android" name="course" value="Android">
+                    <label class="form-check-label" for="android">Android</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="col-12 mb-2">Country</div>
+                <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" id="country">
+                    <option selected value="none">Select a Country HERE</option>
+                    <option value="India">India</option>
+                    <option value="Usa">Usa</option>
+                    <option value="London">London</option>
+                </select>
+                <div class="col-12 mb-2">State</div>
+                <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="state[]"
+                    multiple>
+                    <option selected class="text-center" value="none">Select State HERE</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Mumbai">Mumbai</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Meassage</label>
+                <textarea class="form-control" id="message" rows="6" name="message" style="resize: none;"></textarea>
+            </div>
+            <div class="row justify-content-center">
+                <input type="submit" value="Click HERE" class="col-4 btn btn-outline-primary btn-lg" name="btn" id="btn"
+                    onclick="return valid()">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

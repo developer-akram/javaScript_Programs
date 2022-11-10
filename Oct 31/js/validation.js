@@ -11,6 +11,7 @@ function valid() {
     let mob = document.getElementById('mob').value;
     mob = String(Number(mob));
     let cbx = document.querySelectorAll('input[name="tech"]:checked');
+    console.log(cbx);
     let qua = document.getElementById('qualification').value;
     if (fname.length == 0) {
         alert("First Name cannot Empty");

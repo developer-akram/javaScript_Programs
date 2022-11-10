@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function myValue() {
+            let gender = document.querySelector('input[name="gender"]:checked');
+            console.log(gender);// null if gender not selected and if access value it will give an error
+
+            console.log( gender!= null ? gender.value : 'Gender not Select');
+
+            // if (gender != null)
+            //     console.log(gender.value);
+            // else
+            //     console.log('Gender not Select');
+        }
+    </script>
+    <form action="">
+        <input type="radio" name="gender" id="male" value="Male">Male
+        <input type="radio" name="gender" id="female" value="Female">Female
+        <input type="button" value="Submit" onclick="myValue()">
+    </form>
+</body>
+
+</html>
