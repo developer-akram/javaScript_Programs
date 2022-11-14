@@ -70,6 +70,14 @@
           <input type="text" class="form-control" id="mob" placeholder="Mobile Number">
         </div>
         <div class="col-12 mb-3">
+          <select class="form-select" aria-label="Default select example" id="country" multiple>
+            <option value="" selected disabled>Select Your Country</option>
+            <option value="India">India</option>
+            <option value="United State of America">United State of America</option>
+            <option value="Germany">Germany</option>
+          </select>
+        </div>
+        <div class="col-12 mb-3">
           <select class="form-select" aria-label="Default select example" id="state">
             <option value="none" selected>Select Your State</option>
             <option value="Madhya Pradesh">Madhya Pradesh</option>
@@ -107,6 +115,10 @@
             <input class="form-check-input" type="checkbox" id="android" name="tech" value="Android">
             <label class="form-check-label" for="android">Android</label>
           </div>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Example textarea</label>
+          <textarea class="form-control" id="message" rows="3" name="message"></textarea>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto mt-5">
           <input type="button" class="btn btn-info" value="Submit Here" id="btn" onclick="return valid()">

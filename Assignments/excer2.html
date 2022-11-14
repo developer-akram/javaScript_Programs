@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="/excercise_2.js"></script> -->
+</head>
+
+<body>
+    <script>
+        let user_score = 0;
+        let com_score = 0;
+        let draw = 0;
+        for (let i = 1; i <= 10; i++) {
+            console.log(`Round [${i}]`)
+            console.log(`User score : ${user_score}\nComputer score : ${com_score}\nDraw : ${draw}`);
+            let mychoice = prompt("Choose 's' 'w' 'g' : ")
+            mychoice = mychoice.toUpperCase();
+            let computer = ['S', 'W', 'G'];
+            let comchoice = computer[Math.floor(Math.random() * computer.length)];
+            console.log(`You choose : ${mychoice}\nComputer choose : ${comchoice}`);
+            if (mychoice == comchoice) {
+                console.log('Its a draw');
+                draw++;
+            }
+            else if (mychoice == 'S' && comchoice == 'W' || mychoice == 'W' && comchoice == 'G' || mychoice == 'G' && comchoice == 'S') {
+                console.log('You win this round');
+                user_score++;
+            }
+            else if (mychoice == 'W' && comchoice == 'S' || mychoice == 'G' && comchoice == 'W' || mychoice == 'S' && comchoice == 'G') {
+                console.log('Computer win this round');
+                com_score++;
+            }
+        }
+        if (user_score > com_score) {
+            console.log('Match result : You Win');
+            console.log(`User Score : ${user_score}\nComputer Score : ${com_score}\nDraw : ${draw}`);
+        }
+        else if (user_score < com_score) {
+            console.log('Match result : Computer win');
+            console.log(`User Score : ${user_score}\nComputer Score : ${com_score}\nDraw : ${draw}`);
+        }
+        else {
+            console.log('Match result : TIE');
+            console.log(`User Score : ${user_score}\nComputer Score : ${com_score}\nDraw : ${draw}`);
+        }
+    </script>
+</body>
+
+</html>

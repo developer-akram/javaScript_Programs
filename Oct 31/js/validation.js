@@ -1,10 +1,19 @@
 function valid() {
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
-    let a2z = /^[a-zA-Z]+$/;
+    let a2z = /^[a-zA-Z ]+$/;
     let email = document.getElementById("email").value;
     let atpos = email.indexOf('@');
     let dotpos = email.lastIndexOf('.');
+    let cvalue = '';
+    let country = document.getElementById('country');
+    for (let i =0; i < country.options.length; i++)
+    {
+        if(country.options[i].selected)
+        {
+            cvalue += country.options[i].value;
+        }
+    }
     let state = document.getElementById('state').value;
     let gender = document.querySelector('input[name="gender"]:checked');
     let city = document.getElementById('city').value;
@@ -13,6 +22,7 @@ function valid() {
     let cbx = document.querySelectorAll('input[name="tech"]:checked');
     console.log(cbx);
     let qua = document.getElementById('qualification').value;
+    let message = document.getElementById('message').value;
     if (fname.length == 0) {
         alert("First Name cannot Empty");
         return false;
@@ -48,6 +58,11 @@ function valid() {
         alert("Number Should be 10 digits");
         return false;
     }
+    else if (cvalue === '')
+    {
+        alert("Select Your Country First");
+        return false;
+    }
     else if (state == 'none') {
         alert("Select State");
         return false;
@@ -62,6 +77,10 @@ function valid() {
     }
     else if (cbx.length == 0) {
         alert("Select At least one Technology");
+        return false;
+    }
+    else if (message.length == 0) {
+        alert("Message box cannot be empty");
         return false;
     }
     else {

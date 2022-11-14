@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function Validate(){
+        var email = document.getElementById("txtemail").value;
+        var dotpos = email.lastIndexOf(".");
+        var atpos = email.indexOf("@");
+        if(!(isNaN(document.getElementById("txtname").value))  || !(document.getElementById("txtname").value))
+        {      
+              // alert("name can't be empty or numeric");
+              document.getElementById("txtname").style.border = "1px solid red"
+              document.getElementById("nameerr").innerHTML = "name can't be empty or numeric"
+              return false;  
+        }
+    //    else{
+    //             document.getElementById("txtname").style.border = "1px solid black"
+    //           document.getElementById("nameerr").innerHTML = "name approved"
+    //           return false;
+    //            }
+        else if(isNaN(document.getElementById("txtmob").value)){
+               // alert("invalid mobile no.");
+               document.getElementById("txtmob").style.border= "1px solid red"
+               document.getElementById("moberr").innerHTML="invalid mobile no."
+                return false;
+        }
+        else if(document.getElementById("txtmob").value.length!=10){
+               // alert("mobile no should be 10 nos.");
+                document.getElementById("txtmob").style.border="1px solid red"
+                document.getElementById("moberr").innerHTML="mobile no should be 10 nos."
+                return false;
+        }
+        else if(document.getElementById("txtmob").value[0]!="6" && document.getElementById("txtmob").value[0]!="7" && document.getElementById("txtmob").value[0]!="8" && document.getElementById("txtmob").value[0]!="9"){
+           // alert("mob no can only start with 6 or 7 or 8 or 9");
+            document.getElementById("txtmob").style.border="1px solid red"
+            document.getElementById("moberr").innerHTML="mob no can only start with 6 or 7 or 8 or 9"
+            return false;
+        }
+        // else if(lastdotpos == -1 || atpos == -1 || atpos > lastdotpos || (lastdotpos-atpos) < 3 || email.length-1 == lastdotpos || email[0] == "@" || email[0] == "."){     
+        //        alert("email id invalid");
+        //        return false;      
+        // }
+        else if(atpos==-1 || dotpos == -1 || dotpos<atpos || (dotpos-atpos)<3 || dotpos==email.length-1)
+        {
+           // alert("Invalid Email Id");
+            document.getElementById("txtemail").style.border="1px solid red"
+            document.getElementById("emailerr").innerHTML="Invalid Email Id"
+            return false;
+        }
+        else if(!(document.getElementById("indore").checked) && !(document.getElementById("bhopal").checked)){
+          //  alert("select city");
+          document.getElementById("cityerr").innerHTML="select city"
+            return false
+        }
+        else if(!(document.getElementById("py").checked) && !(document.getElementById("js").checked) && !(document.getElementById("htmlcss").checked)){
+           // alert("select courses")
+           document.getElementById("courseserr").innerHTML="select courses"
+            return false
+        }
+        else if(!(document.getElementById("ih").selected) && !(document.getElementById("vn").selected) && !(document.getElementById("bh").selected) ){
+            //  alert ("select center")
+            document.getElementById("center").style.border="1px solid red"
+            document.getElementById("centererr").innerHTML="select center"  
+            return false 
+        }
+        else if(!(document.getElementById("off").selected) && !(document.getElementById("on").selected) && !(document.getElementById("con").selected)){
+              //alert ("select class mode") 
+              document.getElementById("cm").style.border="1px solid red"
+              document.getElementById("cmerr").innerHTML="select class mode"
+              return false
+        }
+        else if(document.getElementById("txtmsg").value.length > 100){
+               document.getElementById("txtmsg").style.border="1px solid red"
+               document.getElementById("msgerr").innerHTML="message should be under 100 words"
+               return false
+        }
+        
+    } 
+    
+</script>
+    <form action="" method="post" onsubmit="return Validate()">
+       {% csrf_token %}
+       <table>
+          <tr> <td> Enter name </td> <td> <input type="text" name="txtname" id="txtname" size="31" value={{name}}>  </td> <td> <span id="nameerr"></span></td> </tr>
+          <tr> <td> Enter mobile </td> <td> <input type="text" name="txtmob" id="txtmob" size="31" value={{mob}}>  </td> <td> <span id="moberr"></span> </td> </tr>
+          <tr> <td> Enter email id </td> <td> <input type="text" name="txtemail" id="txtemail" size="31" value={{email}} ></td> <td> <span id="emailerr"></span> </td> </tr>
+          <tr> <td> Enter city </td><td> <input type="radio" name="cities" id="indore" value="Indore" {% if cities == "Indore" %} checked="true" {% endif %}>Indore  <input type="radio" name="cities" id="bhopal" value="Bhopal" {% if cities == "Bhopal" %} checked="true" {% endif %} />Bhopal </td> <td> <span id="cityerr"></span> </td> </tr>
+          <tr> 
+            <td> Select courses </td>
+            <td> 
+                <input type="checkbox" name="courses" id="py" value="py"
+                   {% if courses == "py" %}
+                     checked="true"
+                   {% endif %} 
+                   {% if courses == "pyjs" %}
+                     checked="true"
+                   {% endif %}
+                   {% if courses == "pyhtmlcss" %}
+                      checked = "true"
+                    {% endif %}
+                   {% if courses == "pyjshtmlcss" %}
+                    checked="true"
+                    {% endif %} 
+                >Python 
+                <input type="checkbox" name="courses" id="js" value="js"
+                {% if courses == "js" %}
+                checked="true"
+                {% endif %} 
+                {% if courses == "pyjs" %}
+                checked="true"
+                {% endif %}
+                {% if courses == "jshtmlcss" %}
+                checked="true"
+                {% endif %}
+                {% if courses == "pyjshtmlcss" %}
+                checked="true"
+                {% endif %}
+                >JavaScript 
+                <input type="checkbox" name="courses" id="htmlcss" value="htmlcss"
+                {% if courses == "htmlcss" %}
+                checked="true"
+                {% endif %}
+                {% if courses == "pyhtmlcss" %}
+                checked="true"
+                {% endif %}
+                {% if courses == "jshtmlcss" %}
+                checked="true"
+                {% endif %}
+                {% if courses == "pyjshtmlcss" %}
+                checked="true"
+                {% endif %} 
+                >HTML/CSS 
+            </td> 
+            <td> 
+                <span id="courseserr"></span>
+            </td> 
+          </tr>
+          <tr> 
+            <td> Select center </td>
+            <td>
+                 <select name="center" id="center"> 
+                   <option value="sao">Select any one </option> 
+                   <option value="ih" name="ih" id="ih"
+                     {% if center == "ih" %}
+                     selected="selected"
+                     {% endif %}
+                     > Industry house </option>
+                   <option value="vn" name="vn" id="vn"
+                    {% if center == "vn" %}
+                    selected="true"
+                    {% endif %} 
+                   > Vijay Nagar </option>
+                   <option value="bh" name="bh" id="bh"
+                   {% if center == "bh" %}
+                    selected="true"
+                   {% endif %}    
+                   > Bhawarkua </option>
+                 </select>
+            </td> 
+            <td> 
+                <span id="centererr"></span> 
+            </td>
+         </tr>  
+          <tr> 
+            <td> Select class mode </td>
+            <td> 
+                <select name="cm" id="cm" multiple>
+                     <option value="off" name="off" id="off"> Offline mode</option>
+                     <option value="on" name="on" id="on"> Online mode </option>
+                     <option value="con" name="con" id="con"> Consultancy </option>
+                </select>
+            </td> 
+            <td> 
+                <span id="cmerr"></span>
+            </td>
+          </tr>  
+          <tr> <td> Enter message </td> <td> <textarea name="txtmsg" id="txtmsg" cols="30" rows="10"> Write your message here... </textarea> </td> <td> <span id="msgerr"></span> </td> </tr>
+          <tr> <td></td> <td> <input type="submit" value="submit" name="txtsub" id="txtsub" style="margin-left: 188px ;"/> </td> </tr>
+        </table>
+    </form>
+   <p> {{courses}} </p> 
+    <p> {{center}} </p> 
+</body>
+</html>
